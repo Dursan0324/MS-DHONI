@@ -5,9 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Idol-M.S Dhoni</title>
     <style>
+        .switch{
+            position: relative;
+            display: inline-block;
+            width: 55px;
+            height: 30px;
+            .switch input{
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+        }
+        .slider{
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+        .slider:before{
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider{
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before{
+            transform: translateX(26px);
+        }
         html,body{
             color: #f5f5f5;
-            background-color: #0a192f;
         }
         .button-container{
             
@@ -46,7 +84,7 @@
             font-family: Arial, Sans-swerif;
             line-height: 1.6;
             margin: 20px;
-            background-color: #f8f9f;
+            background-color: #0a192f;
         }
         h1{
             text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -55,6 +93,7 @@
             display: inline !important;
             padding:  5px 10px;
             border-radius: 10px;
+            margin-left: 40%;
         }
         .intro-section{
             display: flex;
@@ -72,7 +111,7 @@
         .intro-text{
             flex: 1;
             min-width: 250px;
-            color:white;
+            /* color:white; */
             align-self: self-start;
             font-size: large;
         }
@@ -134,11 +173,13 @@
     </style>
 </head>
 <body>
+
+
     <div class="button-container">
-        <a href="#introduction" class="button" style="inline;">Introduction</a>
-        <a href="#Achievements" class="button" style="inline;">Achievements</a>
-        <a href="#My Gallery" class="button" style="inline;">My Gallery</a>
-        <a href="#Contact" class="button" style="inline;">Contact</a>
+        <a href="#introduction" class="button" style="display: inline;">Introduction</a>
+        <a href="#Achievements" class="button" style="display: inline;">Achievements</a>
+        <a href="#My Gallery" class="button" style="display: inline;">My Gallery</a>
+        <a href="#Contact" class="button" style="display: inline;">Contact</a>
     </div>
 
     <!-- Heading section -->
@@ -217,9 +258,13 @@
         <img src="mahi5.jpg" alt="image5">
         <img src="mahi9.jpg" alt="image6">
         </div>
+            <label class="switch">
+        <input type="checkbox" id="mode" >
+        <span class="slider"></span>
+    </label>
 
     </div>
-    
+    <script src="script.js"></script>
     
     <!-- Dev details -->
     <footer id="Contact">
